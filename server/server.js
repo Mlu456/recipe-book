@@ -1,17 +1,36 @@
 const express = require('express');
-const app = express();
 const path = require('path');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
-// const leaderList = [
-//   {name: 'Anna', id: 'a0'},
-//   {name: 'Ben', id: 'b0'},
-//   {name: 'Clara', id: 'c0'},
-//   {name: 'David', id: 'd0'},
-// ];
+const recipeController = require('./recipeController');
+const userController = require('./userController');
+const app = express();
 
-// app.get('/api/leaders', (req, res) => {
-//   res.send(leaderList);
-// });
+app.use(bodyParser.json());
+app.use(cors());
+
+app.post('/getrecipe', recipeController.getRecipe);
+
+app.post('/login', userController.verifyUser);
+
+app.post('/signup', userController.createUser);
+
+app.post('/add', userController.addToFavorite);
+
+app.post('/getfavorites', userController.getFave);
+
+app.get('/signup', (req, res) =>{
+  res.sendFile(path.join(__dirname,'./../index.html'))
+})
+
+app.get('/login', (req, res) =>{
+  res.sendFile(path.join(__dirname,'./../index.html'))
+})
+
+app.get('/home', (req, res) =>{
+  res.sendFile(path.join(__dirname,'./../index.html'))
+})
 
 if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.join(__dirname, '../build')));
@@ -20,5 +39,6 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(3000); //listens on port 3000 -> http://localhost:3000/
+app.listen(3000);
 
+module.exports = app;

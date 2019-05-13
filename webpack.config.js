@@ -11,9 +11,10 @@ module.exports = {
   devServer: {
     publicPath: '/build/',
     proxy: {
-      '/api': 'http://localhost:3000',
+      '/home': 'http://localhost:3000',
+      '/login': 'http://localhost:3000',
+      '/signup': 'http://localhost:3000',
     },
-    // hot: true,
   },
   module: {
     rules: [
@@ -24,7 +25,6 @@ module.exports = {
               loader: 'babel-loader',
               options: {
                 presets: ['@babel/preset-env', '@babel/preset-react'],
-                // plugins: ['react-hot-loader/babel'],
               },
             },
       },
@@ -34,11 +34,5 @@ module.exports = {
       }
     ]
   },
-  // plugins: [new webpack.HotModuleReplacementPlugin()],
-  // resolve: {
-  //   alias: {
-  //     'react-dom': '@hot-loader/react-dom'
-  //   }
-  // },
 }
 

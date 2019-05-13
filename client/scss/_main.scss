@@ -1,7 +1,55 @@
 body {
-  background: lightgrey;
+  background: $lightGray;
 }
 
 h1 {
   text-align: center;
 }
+
+
+.content {
+  display: grid;
+  grid-template-columns: 15% 85%;
+}
+
+// .ingredient-item {
+//   line-height: 1.5;
+// }
+
+// .ingredient-item button {
+//   border-radius: 8px;
+//   background-color: lightgray;
+//   border: 1px solid rgb(88, 85, 85);
+// }
+
+// .ingredient-item button:hover {
+//   background-color: $mediumGray;
+//   transition: 0.3s;
+// }
+
+// // .main {
+// //   display: grid;
+// //   grid-template-columns: 10% 80% 10%;
+// // }
+
+// .recipe-item {
+//   border-bottom: 1px solid $mediumGray;
+//   padding-bottom: 14px;
+// }
+
+// .recipe-item a {
+//   text-decoration: none;
+//   color: black;
+// }
+
+// .recipes-list {
+//   list-style-type: none;
+// }
+
+// .recipe-title {
+//   color: $watermelon;
+// }
+
+// .bold-gray {
+//   color: $darkGray;
+// }
